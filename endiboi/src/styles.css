@@ -251,4 +251,111 @@ body, html {
     text-align: center;
     margin-top: auto; /* Pushes the footer to the bottom */
   }
+
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2%;
+    background-color: #002244;
+  }
+  
+  .project-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #00e6e6, #00bfbf);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    color: #002244;
+    font-family: 'Orbitron', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-description h2 {
+    font-size: 1.8rem; /* Larger font size for project names */
+    font-weight: bold; /* Make project names stand out */
+    color: #002244; /* Dark navy color for contrast */
+    text-align: center; /* Center the project name */
+    margin-bottom: 0.5rem; /* Space below the project name */
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+    text-transform: uppercase; /* Add modern uppercase styling */
+    letter-spacing: 1px; /* Slight spacing for a clean look */
+  }
+
+  .project-description h2::after {
+    content: '';
+    display: block;
+    width: 50px; /* Short line width */
+    height: 2px; /* Thin line */
+    background-color: #00bfbf; /* Accent color */
+    margin: 0.5rem auto; /* Center the line and add spacing */
+  }
+  
+  .project-description p {
+    font-size: 1rem; /* Standardized font size */
+    color: #444; /* Softer color for readability */
+    line-height: 1.6; /* Improve text spacing */
+    max-width: 800px; /* Limit description width for better layout */
+    text-align: center; /* Center-align the text for consistency */
+    margin: 0 auto; /* Center the paragraph within the container */
+    font-family: 'Roboto', sans-serif; /* Clean, modern font */
+  }
+  
+  .project-images-row {
+    display: flex; /* Align images in a row */
+    gap: 1rem; /* Space between images */
+    justify-content: center; /* Center the row */
+    margin-bottom: 1rem; /* Add spacing below images */
+  }
+  
+  .project-images-row img {
+    width: 120px; /* Standardized size */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-images-row img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  
+  .tech-stack {
+    display: flex; /* Align tech stack items in a row */
+    gap: 0.5rem; /* Space between tech stack icons */
+    justify-content: center; /* Center the row */
+    margin-top: 1rem; /* Add space above the tech stack */
+  }
+  
+  .tech-icon {
+    display: inline-block;
+    background-color: #002244;
+    color: #00e6e6;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .tech-icon:hover {
+    background-color: #00bfbf;
+    transform: translateY(-2px);
+  }
+
+  
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   
