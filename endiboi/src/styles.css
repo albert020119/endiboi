@@ -257,6 +257,7 @@ body, html {
   .projects-container {
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(6px);
     gap: 4rem;
     padding: 2rem;
   }
@@ -272,6 +273,17 @@ body, html {
       background-position: 0% 50%;
     }
   }
+  .project-card {
+    display: flex;
+    flex-direction: row; /* Default layout: image and text side by side */
+    gap: 1rem;
+    align-items: flex-start;
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
   
   
   .project-section {
@@ -283,32 +295,48 @@ body, html {
     padding: 2rem; /* Consistent spacing on all sides */
   }
   
-  .project-section:nth-child(even) {
+  .project-card:nth-child(even) {
     grid-template-columns: 1fr 1fr;
     direction: rtl; /* Flips the layout for alternating design */
   }
   
+  .project-details {
+    display: block;
+  
+  }
   .project-image-container {
     position: relative;
     overflow: hidden;
+    max-width: 400px;
     justify-content: center; /* Center horizontally */
     border-radius: 12px; /* Smooth rounded edges */
     width: 100%; /* Ensure it spans the full width of its container */
     display: flex; /* Ensures content like images aligns properly */
+    padding-left: 10%;
+    padding-right: 10%;
   }
   
   .project-image-container img {
-    width: 50%; /* Fit the container width */
-    height: 100%; /* Fit the container height */
-    object-fit: cover; /* Ensures the image covers the entire container without distortion */
-    object-position: center; /* Centers the image focus */
-    border-radius: 12px; /* Match the container's rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition for hover effects */
+    max-width: 400px;
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Fit the entire image within the container */
+    object-position: center; /* Center the image content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .project-image-container img:hover {
     transform: scale(1.05); /* Slight zoom effect on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+  .project-text {
+    font-family: 'Orbitron', sans-serif; /* Modern and edgy font */
+    color: #ffffff; /* Matches the page's vibe with a vibrant blue */
+    font-size: 1.2rem; /* Adjust size for readability */
+    line-height: 1.6; /* Improves text spacing */
+    text-align: center; /* Default alignment */
+    letter-spacing: 2px; /* Slight spacing for modern look */
+    font-weight: 500; /* Balanced weight for the text */
   }
   
   .project-content {
@@ -320,7 +348,7 @@ body, html {
   .project-content h2 {
     font-size: 2rem;
     font-weight: 700;
-    color: #004a95;
+    color: #ffffff;
     margin-bottom: 0.5rem;
   }
   
@@ -371,6 +399,26 @@ body, html {
   .tech-icon:hover {
     background-color: #00bfbf;
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .project-card {
+      flex-direction: column; /* Stack image, text, and tech stack vertically */
+      align-items: center;
+    }
+  
+    .project-image {
+      width: 100%; /* Full width on smaller screens */
+      margin-bottom: 1rem;
+    }
+  
+    .project-text {
+      text-align: center;
+    }
+  
+    .project-tech-stack {
+      justify-content: center;
+    }
   }
 
   
