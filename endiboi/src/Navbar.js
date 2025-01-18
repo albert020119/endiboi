@@ -6,8 +6,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="brand">
-      <span className="brand-name">endiboi</span>
-        <img src="logo.png" alt="Logo" className="logo" />
+        <Link to="/">
+             <span className="brand-name">endiboi</span>
+        </Link>
+        <Link to="/">
+             <img src="logo.png" alt="Logo" className="logo" />
+        </Link>
       </div>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>

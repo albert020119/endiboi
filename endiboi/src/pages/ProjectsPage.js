@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {AnimatedBackground} from 'animated-backgrounds'; 
 import '../styles.css';
 
 const projects = [
@@ -6,20 +7,20 @@ const projects = [
     title: 'APK Analyzer',
     description:
       'My diploma work. I essentially created an Anti Virus for Android. Aside from the standard boring static analysis, the project uses Frida hooking to perform dynamic analysis on downloaded APK files on the users device.',
-    images: ['frida.png', 'android.png'],
-    techStack: ['FastAPI', 'Java', 'JavaScript', 'Emulators'],
+    images: ['frida.png'],
+    techStack: ['Python', 'FastAPI', 'Java', 'JavaScript', 'Emulators', 'Android OS'],
   },
   {
-    title: 'Project 2',
-    description: 'A detailed description of project 2.',
-    images: ['/path/to/image3.jpg', '/path/to/image4.jpg', '/path/to/image5.jpg'],
-    techStack: ['Python', 'Django', 'PostgreSQL'],
+    title: 'qESTkit',
+    description: 'A quantum circuit simulation library, created together with a few colleagues. We essentially created a fully fledged quantum simulator and ran Grover on it.',
+    images: ['quantum.png'],
+    techStack: ['Python', 'Quantum Computing', 'Matplotlib', 'Numpy', 'QKD'],
   },
   {
-    title: 'Project 3',
-    description: 'A detailed description of project 3.',
-    images: ['/path/to/image6.jpg', '/path/to/image7.jpg'],
-    techStack: ['Java', 'Spring Boot', 'MySQL'],
+    title: 'Rust Type Racer',
+    description: 'A command line typeracer. Creating this was an excuse to learn Rust',
+    images: ['rust.png'],
+    techStack: ['Rust', 'Command line', 'TTY'],
   },
 ];
 
@@ -37,41 +38,25 @@ const ProjectsPage = () => {
 
   return (
     <div>
-      <div className="content">
-        <div className="projects-container">
-          {visibleProjects.map((project, index) => (
-            <div key={index} className="project-card">
-              {/* Project Title and Description */}
-              <div className="project-description">
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-              </div>
-
-              {/* Images in a row */}
-              <div className="project-images-row">
-                {project.images &&
-                  project.images.map((image, imgIndex) => (
-                    <img
-                      key={imgIndex}
-                      src={image}
-                      alt={`Project ${index + 1} Image ${imgIndex + 1}`}
-                    />
-                  ))}
-              </div>
-
-              {/* Tech Stack in a row below the images */}
-              <div className="tech-stack">
-                {project.techStack &&
-                  project.techStack.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-icon">
-                      {tech}
-                    </span>
-                  ))}
-              </div>
+    <AnimatedBackground animationName="particleNetwork" blendMode="normal"/>"    
+    <div className="projects-container">
+      {visibleProjects.map((project, index) => (
+        <div key={index} className="project-section">
+          <div className="project-image-container">
+            <img src={project.images[0]} alt={`Project ${index + 1}`} />
+          </div>
+          <div className="project-content">
+            <h2>{project.title}</h2>
+            <p>{project.description}</p>
+            <div className="project-tech-stack">
+              {project.techStack.map((tech, techIndex) => (
+                <span key={techIndex}>{tech}</span>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      ))}
+    </div>
     </div>
   );
 };

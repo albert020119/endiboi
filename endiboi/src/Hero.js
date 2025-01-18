@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactTyped as Typed } from 'react-typed';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -20,7 +21,7 @@ const Hero = () => {
         />
         {/* Button is now placed below the Typed text */}
         <div className="button-container">
-          <a href="#projects" className="cta-button">View My Work</a>
+          <a href="#projects" className="cta-button"><Link to="/projects">View My Work</Link></a>
         </div>
       </div>
     </section>

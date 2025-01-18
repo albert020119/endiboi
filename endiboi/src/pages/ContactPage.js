@@ -5,7 +5,6 @@ import '../styles.css';
 const ContactPage = () => {
   return (
     <div>
-      <Navbar />
       <div className="content">
         <h1>Contact Page</h1>
         <p>Get in touch! I’d love to hear from you.</p>

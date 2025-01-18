@@ -39,8 +39,8 @@ body, html {
     line-height: 1; /* Ensure it doesn't stretch vertically */
     display: flex;
     align-items: center;
-    height: 40px; /* Optional: Sets a specific height */
-    width: 40px
+    height: 70px; /* Optional: Sets a specific height */
+    width: 70px
   }
   
   .nav-links {
@@ -255,77 +255,103 @@ body, html {
   .projects-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding-top: 2%;
+    gap: 4rem;
+    padding: 2rem;
+  }
+  
+  @keyframes backgroundMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  .project-section {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split the section into two equal parts */
+    align-items: center; /* Center-align content vertically */
+    gap: 1rem; /* Equal spacing between the image and description */
+    padding: 2rem; /* Consistent spacing on all sides */
+  }
+  
+  .project-section:nth-child(even) {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl; /* Flips the layout for alternating design */
+  }
+  
+  .project-image-container {
+    position: relative;
+    overflow: hidden;
+    justify-content: center; /* Center horizontally */
+    border-radius: 12px; /* Smooth rounded edges */
+    width: 100%; /* Ensure it spans the full width of its container */
+    display: flex; /* Ensures content like images aligns properly */
+  }
+  
+  .project-image-container img {
+    width: 50%; /* Fit the container width */
+    height: 100%; /* Fit the container height */
+    object-fit: cover; /* Ensures the image covers the entire container without distortion */
+    object-position: center; /* Centers the image focus */
+    border-radius: 12px; /* Match the container's rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition for hover effects */
+  }
+  
+  .project-image-container img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+  .project-content {
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+  }
+  
+  .project-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #004a95;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-content p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-style: bold;
+  }
+  
+  .project-tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .project-tech-stack span {
     background-color: #002244;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
   }
   
-  .project-card {
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: linear-gradient(145deg, #00e6e6, #00bfbf);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    color: #002244;
-    font-family: 'Orbitron', sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .project-tech-stack span:hover {
+    background-color: #00bfbf;
   }
   
-  .project-description h2 {
-    font-size: 1.8rem; /* Larger font size for project names */
-    font-weight: bold; /* Make project names stand out */
-    color: #002244; /* Dark navy color for contrast */
-    text-align: center; /* Center the project name */
-    margin-bottom: 0.5rem; /* Space below the project name */
-    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
-    text-transform: uppercase; /* Add modern uppercase styling */
-    letter-spacing: 1px; /* Slight spacing for a clean look */
-  }
-
-  .project-description h2::after {
-    content: '';
-    display: block;
-    width: 50px; /* Short line width */
-    height: 2px; /* Thin line */
-    background-color: #00bfbf; /* Accent color */
-    margin: 0.5rem auto; /* Center the line and add spacing */
-  }
-  
-  .project-description p {
-    font-size: 1rem; /* Standardized font size */
-    color: #444; /* Softer color for readability */
-    line-height: 1.6; /* Improve text spacing */
-    max-width: 800px; /* Limit description width for better layout */
-    text-align: center; /* Center-align the text for consistency */
-    margin: 0 auto; /* Center the paragraph within the container */
-    font-family: 'Roboto', sans-serif; /* Clean, modern font */
-  }
-  
-  .project-images-row {
-    display: flex; /* Align images in a row */
-    gap: 1rem; /* Space between images */
-    justify-content: center; /* Center the row */
-    margin-bottom: 1rem; /* Add spacing below images */
-  }
-  
-  .project-images-row img {
-    width: 120px; /* Standardized size */
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .project-images-row img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-  }
-  
-  .tech-stack {
-    display: flex; /* Align tech stack items in a row */
-    gap: 0.5rem; /* Space between tech stack icons */
-    justify-content: center; /* Center the row */
-    margin-top: 1rem; /* Add space above the tech stack */
-  }
   
   .tech-icon {
     display: inline-block;
