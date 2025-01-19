@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';
 import Hero from './Hero';
 import About from './About';
 import Footer from './Footer';
@@ -12,7 +11,6 @@ const App = () => {
   return (
     <Router>
       <div id="root">
-        <Navbar />
         <main>
           <Routes>
             {/* Route for the home page */}
