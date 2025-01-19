@@ -28,6 +28,7 @@ const projects = [
 ];
 
 const ProjectsPage = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   const [visibleProjects, setVisibleProjects] = useState([]);
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -41,7 +42,7 @@ const ProjectsPage = () => {
         setAllProjectsLoaded(true); // Mark all projects as loaded
         clearInterval(timer);
       }
-    }, 1);
+    }, 50);
 
     return () => clearInterval(timer);
   }, [visibleProjects]);

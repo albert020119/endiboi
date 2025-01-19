@@ -4,12 +4,16 @@ import { ReactTyped as Typed } from "react-typed";
 import GLOBE from "vanta/dist/vanta.globe.min";
 import * as THREE from "three";
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
 
+  const navigate = useNavigate();
+  const handleViewMyWorkClick = () => {
+    navigate('/projects');
+  }
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -36,9 +40,9 @@ const Hero = () => {
   }, [vantaEffect]);
 
   return (
-    <div ref={myRef} style={{ width: "100%", height: "100vh" }}>
+    <div ref={myRef} style={{ width: "100%", height: "100vh" }} id="home">
       <Navbar />
-      <section className="hero" id="home">
+      <section className="hero">
 
         <div className="hero-container">
           <div className="hero-image">
@@ -58,7 +62,7 @@ const Hero = () => {
               loop // Loops the typing effect
             />
             <div className="button-container">
-              <a href="#projects" className="cta-button">
+              <a className="cta-button" onClick={handleViewMyWorkClick}>
                 <Link to="/projects">View My Work</Link>
               </a>
             </div>
